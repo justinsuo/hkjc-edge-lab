@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HKJC Edge Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css"/>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="logo"></span> HKJC Edge Lab</div>
+    <nav class="nav" id="nav"></nav>
+    <div class="verdict-chip" id="verdictChip" onclick="go('validation')">
+      <div class="lbl">Verdict</div>
+      <div class="val"><span class="dot" id="verdictDot"></span><span id="verdictText">…</span></div>
+    </div>
+    <div class="side-foot" id="sideFoot">v0.1 · loading…</div>
+  </aside>
+
+  <div class="main" id="mainWrap">
+    <div class="honesty-strip">
+      <span class="pill nobet">Default: NO BET</span>
+      <span id="honestyText">HKJC market is efficient — no validated edge. This is research &amp; decision-support, not a tipster.</span>
+    </div>
+    <div class="gate-strip">⚠ EDGE GATE ON — overriding the NO-GO verdict. Suggestions are unvalidated and expected to lose the takeout.</div>
+    <div class="topbar"><h1 id="pageTitle">Overview</h1><div id="topbarActions" class="row"></div></div>
+    <div class="content"><div class="content-inner fade" id="view"></div></div>
+    <div class="footer">
+      <span>Research / decision-support only · NOT betting or financial advice · NOT affiliated with or endorsed by the HKJC · no warranty.</span>
+      <span>Cap.148: betting with unauthorised bookmakers is an offence in HK · If gambling affects you: Ping Wo Fund 183&nbsp;4633.</span>
+    </div>
+  </div>
+</div>
+
+<!-- first-run modal -->
+<div class="modal-back" id="firstRun">
+  <div class="modal">
+    <h2>What this is — and isn't</h2>
+    <p>HKJC Edge Lab is a <strong>personal research tool</strong> that honestly tests whether a public-data model can beat the HKJC closing line. The current verdict is <strong>NO-GO</strong> — no validated edge — so the default action everywhere is <strong>NO BET</strong>.</p>
+    <p>It is <strong>not</strong> betting advice, not a tipster, and not affiliated with the HKJC. Simulated results are hypothetical and after-takeout. You are expected to lose the ~17.5% takeout on average. Bet at your own risk and within the law (Cap.148).</p>
+    <div class="actions"><button class="btn" onclick="dismissFirstRun()">I understand</button></div>
+  </div>
+</div>
+
+<!-- edge gate confirm modal -->
+<div class="modal-back" id="gateModal">
+  <div class="modal">
+    <h2>Turn the edge gate ON?</h2>
+    <p>The validation verdict is <strong>NO-GO</strong>. Turning this on makes the tool emit bet suggestions the evidence does <strong>not</strong> support. These bets are expected to <strong>lose the ~17.5% takeout</strong> on average. This is for research/replay only and resets to OFF on relaunch.</p>
+    <p><label class="row"><input type="checkbox" id="gateConfirm"/> I understand these suggestions are unvalidated and expected to lose.</label></p>
+    <div class="actions">
+      <button class="btn secondary" onclick="closeGate()">Cancel</button>
+      <button class="btn" style="background:var(--negative)" onclick="confirmGate()">Enable anyway</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toasts"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

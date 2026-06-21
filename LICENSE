@@ -1,0 +1,33 @@
+MIT License
+
+Copyright (c) 2026 Justin Suo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+------------------------------------------------------------------------------
+ADDITIONAL NOTICE — READ BEFORE USE
+
+This is a personal RESEARCH tool. It is NOT betting or financial advice and is
+NOT affiliated with or endorsed by The Hong Kong Jockey Club (HKJC). Its own
+out-of-sample validation verdict is NO-GO: it has no demonstrated edge over the
+market, and you are expected to lose the takeout (~17.5%) on average. Betting
+with an unauthorised (offshore/illegal) operator is an offence under the Hong
+Kong Gambling Ordinance (Cap. 148). Any data you collect from HKJC pages is
+subject to that site's Terms of Service and robots.txt — for personal use only;
+do not redistribute. Use entirely at your own risk and within the law.

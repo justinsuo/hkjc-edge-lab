@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hkjc-edge-tool"
+version = "0.1.0"
+description = "HKJC horse-racing edge-detection research tool (honest, NO-BET-by-default)"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "html5lib>=1.1",
+    "PyYAML>=6.0",
+    "pandas>=2.0",
+    "numpy>=1.26",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+app = ["flask>=3.0", "pywebview>=5.0", "matplotlib>=3.8", "scikit-learn>=1.4", "scipy>=1.11"]
+
+[project.scripts]
+hkjc = "hkjc_edge.cli:main"
+hkjc-app = "hkjc_edge.web.launcher:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["hkjc_edge*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

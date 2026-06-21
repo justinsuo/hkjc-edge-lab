@@ -1,0 +1,11 @@
+# Phase 1 (data pipeline) runtime dependencies.
+# Phase 2+ modelling deps (scikit-learn, lightgbm/xgboost, statsmodels) are added later.
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+html5lib>=1.1
+PyYAML>=6.0
+pandas>=2.0
+numpy>=1.26
+python-dotenv>=1.0
+pytest>=8.0

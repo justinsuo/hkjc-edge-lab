@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Local data, caches, secrets — never commit raw HKJC data (ToS: no redistribution)
+data/
+!data/.gitkeep
+.env
+*.sqlite
+*.sqlite-journal
+*.log
