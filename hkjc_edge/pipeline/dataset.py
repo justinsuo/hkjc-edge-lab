@@ -102,10 +102,13 @@ def build_dataset(db: Database) -> pd.DataFrame:
     # velocity = distance / finishing time; compared to a "par" = mean race-velocity at the
     # same (distance, track) over STRICTLY PRIOR races, so par carries no lookahead.
     df["_velocity"] = df["distance_m"] / df["finish_time_s"]
+    # Sort by true bet-time order (race_date, race_no) — NOT race_id — so the prior-only par
+    # can never include a same-day later race even if race_ids aren't monotonic in race_no.
     _rv = (df.groupby("race_id")
-           .agg(race_date=("race_date", "first"), distance_m=("distance_m", "first"),
+           .agg(race_date=("race_date", "first"), race_no=("race_no", "first"),
+                distance_m=("distance_m", "first"),
                 track=("track", "first"), rv=("_velocity", "mean"))
-           .reset_index().sort_values(["race_date", "race_id"]))
+           .reset_index().sort_values(["race_date", "race_no", "race_id"]))
     _rv["par"] = (_rv.groupby(["distance_m", "track"])["rv"]
                   .transform(lambda s: s.shift().expanding().mean()))
     df = df.merge(_rv[["race_id", "par"]], on="race_id", how="left")

@@ -44,6 +44,20 @@ On a near-complete **2025/26 HKJC season (765 races; 356 out-of-sample test race
 This reproduces, on real data, both Bill Benter's central finding (the public odds are most of
 the signal) and the academic result that the HKJC market is among the most efficient on earth.
 
+**Reproduce it yourself** — a historical paper-trading backtest walks forward through the
+season, bets at the actual closing odds (model trained only on prior races), and tallies the
+realized P&L after takeout:
+
+```bash
+python scripts/historical_backtest.py
+```
+
+Honest result: the model's "top pick", the market favourite, and betting every runner all
+return a **significantly negative** ROI (≈ −takeout); the only non-negative numbers come from a
+handful of bets concentrated in **4 races** where the model wildly disagreed with the market —
+correctly flagged as *too few races* to mean anything. (Verified by a 2-auditor adversarial
+review for lookahead and statistical honesty.)
+
 <p align="center">
 <img src="docs/img/calibration.png" width="46%" alt="Out-of-sample calibration: model vs market">
 <img src="docs/img/pnl.png" width="46%" alt="Cumulative P&L after takeout">
